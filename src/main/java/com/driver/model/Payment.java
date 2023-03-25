@@ -6,7 +6,7 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private Boolean ispaymentCompleted;
+    private Boolean paymentCompleted;
     private PaymentMode paymentMode;
 
     @OneToOne
@@ -24,12 +24,12 @@ public class Payment {
         this.id = id;
     }
 
-    public Boolean getIspaymentCompleted() {
-        return ispaymentCompleted;
+    public boolean isPaymentCompleted() {
+        return paymentCompleted;
     }
 
-    public void setIspaymentCompleted(Boolean ispaymentCompleted) {
-        this.ispaymentCompleted = ispaymentCompleted;
+    public void setPaymentCompleted(Boolean paymentCompleted) {
+        this.paymentCompleted = paymentCompleted;
     }
 
     public PaymentMode getPaymentMode() {
