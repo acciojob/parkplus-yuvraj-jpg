@@ -3,8 +3,10 @@ package com.driver.model;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
 @Entity
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -12,10 +14,17 @@ public class User {
     private String phoneNumber;
     private String password;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    //parent of reservation
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     List<Reservation> reservationList = new ArrayList<>();
 
     public User() {
+    }
+
+    public User(String name, String phoneNumber, String password) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
     }
 
     public int getId() {
